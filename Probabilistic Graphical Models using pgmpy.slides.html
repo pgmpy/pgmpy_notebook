@@ -1718,7 +1718,8 @@ div.output_prompt {
 <body>
 <div class="reveal">
 <div class="slides">
-
+<div style=display:none>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -1733,7 +1734,8 @@ In&nbsp;[7]:
 </div>
 </div>
 
-</div></section>
+</div>
+    </div></section>
     </section><section>
     <section>
     
@@ -1742,8 +1744,8 @@ In&nbsp;[7]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="what-is-a-general-classification-problem-in-machine-learning-">What is a general classification problem in Machine learning?</h3>
-<p>To find the probability of a class given the data i.e P(C | D).</p>
+<h3 id="general-classification-problem-in-machine-learning">General classification problem in Machine learning</h3>
+<p>To find the probability of a class given the data and a new data point i.e  $ P(C | x, D) $.</p>
 <p>So if we have the joint Probability distribution over all the variables we can easily marginalize and reduce it to find the values for a new data point.</p>
 </div>
 </div>
@@ -1769,7 +1771,7 @@ In&nbsp;[7]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="how-s-pgm-different-than-other-algorithms-">How&#39;s PGM different than other algorithms?</h3>
+<h3 id="how-is-pgm-different-than-other-algorithms-">How is PGM different than other algorithms?</h3>
 <p>The distinctive thing about PGM is that it provides a very intuitive and natural approach for modelling complex problems along with maintaining control over the computational costs.</p>
 </div>
 </div>
@@ -1783,7 +1785,7 @@ In&nbsp;[7]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="example">Example</h3>
-<p>Let&#39;s see an example for predicting the price of a house. And for simplicity let&#39;s consider that the price of the house depends only on Area, Location, Furnishing, crime rate and distance from the airport. And also we will consider that all these are just discrete variables.</p>
+<p>Let&#39;s see an example for predicting the price of a house. For simplicity we will consider that the price of the house depends only on Area, Location, Furnishing, Crime Rate and Distance from the airport. And also we will consider that all of these are discrete variables.</p>
 </div>
 </div>
 </div></section>
@@ -1894,7 +1896,7 @@ In&nbsp;[]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="what-does-fit-does-">What does fit does ?</h3>
-<p>Adds a Conditional Probability Distribution to each of the node in our model</p>
+<p>The fit method adds a Conditional Probability Distribution to each of the node in our model</p>
 </div>
 </div>
 </div></section>
@@ -1954,6 +1956,8 @@ In&nbsp;[]:
 
 <span class="n">model</span><span class="o">.</span><span class="n">remove_cpd</span><span class="p">(</span><span class="s">&#39;F&#39;</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">add_cpd</span><span class="p">(</span><span class="n">f_cpd</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">check</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -1970,7 +1974,7 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now let&#39;s try to do some reasoning on our model to verify if our intuitution for interaction between variables was correct or not.</p>
+<p>Now let&#39;s try to do some reasoning on our model to verify if our intuitution for the model was correct or not.</p>
 </div>
 </div>
 </div><div class="fragment">
@@ -1999,7 +2003,7 @@ In&nbsp;[10]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If you think about prediction about new values from this model, it is basically the same what we have been doing here. We basically ask questions with more conditions. Also you can account for missing values with leaving it blank.</p>
+<p>If you think about prediction about new values from this model, it is basically the same what we have been doing here. We basically ask questions about the probability of some variable giving conditions for other variables. Also we can account for missing values with just leaving it blank.</p>
 </div>
 </div>
 </div><div class="fragment">
@@ -2059,7 +2063,91 @@ In&nbsp;[12]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The house price estimation example had very intuitive variables and thus we were able to construct the model very easily. But this is not always the case.</p>
-<p>So for constructing the model we use the independence properties implied by the model and by the Joint Probability distribution.</p>
+<p>So for constructing the model we use the independence properties implied by the model and by the Joint Probability distribution. </p>
+</div>
+</div>
+</div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The graph structure implies some independence conditions over the variables. The variables can be indirectly connected to each other in the following ways:</p>
+</div>
+</div>
+</div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[1]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So, we see some independence conditions in the data we can use that to arrange our variables in the graph structure in such a way to agree to those independencies.</p>
+</div>
+</div>
+</div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This independence due to the structure was responsible for the reduced computational complexity for inference.</p>
+<p>For the Joint Probability distribution over all the variables we can write it as:</p>
+<p>$$ P(A, C, D, L, F, P) = P(A | C, D, L, F, P) * P(C | D, L, F, P) * P(D | L, F, P) * P(L | F, P) * P(F | $$</p>
+<p>But if we apply all the independency conditions that we saw above in this equation we get:</p>
+<p>$$ P(A, C, D, L, F, P) = P(A) * P(L | C, D) * P(C) * P(D) * P(P | F, A, L) * P(F)$$</p>
+</div>
+</div>
+</div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For doing inference over this model we can simply eliminate variables or condition this joint probability.</p>
+<p>Say if we want to calcualate $ P(A) $ we could simply calculate:</p>
+<p>$$P(A) =  \sum_{C} \sum_{D} \sum_{L} \sum_{F} \sum_{P} P(A, C, D, L, F, P) $$</p>
+</div>
+</div>
+</div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is known as Variable Elimination.</p>
 </div>
 </div>
 </div>
