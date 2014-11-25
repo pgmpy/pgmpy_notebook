@@ -1718,8 +1718,7 @@ div.output_prompt {
 <body>
 <div class="reveal">
 <div class="slides">
-<div style=display:none>
-    
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -1734,8 +1733,7 @@ In&nbsp;[7]:
 </div>
 </div>
 
-</div>
-    </div></section>
+</div></section>
     </section><section>
     <section>
     
@@ -1870,41 +1868,18 @@ In&nbsp;[1]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[4]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="kn">from</span> <span class="nn">pgmpy.models</span> <span class="kn">import</span> <span class="n">BayesianModel</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;A&#39;</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">,</span> <span class="s">&#39;D&#39;</span><span class="p">,</span> <span class="s">&#39;L&#39;</span><span class="p">,</span> <span class="s">&#39;F&#39;</span><span class="p">,</span> <span class="s">&#39;P&#39;</span><span class="p">])</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">BayesianModel</span><span class="p">()</span> <span class="c">#Add the edges</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">BayesianModel</span><span class="p">([(</span><span class="s">&#39;F&#39;</span><span class="p">,</span> <span class="s">&#39;P&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;A&#39;</span><span class="p">,</span> <span class="s">&#39;P&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;L&#39;</span><span class="p">,</span> <span class="s">&#39;P&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;C&#39;</span><span class="p">,</span> <span class="s">&#39;L&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;D&#39;</span><span class="p">,</span> <span class="s">&#39;L&#39;</span><span class="p">)])</span>
 <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_pyerr">
-<pre>
-<span class="ansired">---------------------------------------------------------------------------</span>
-<span class="ansired">NameError</span>                                 Traceback (most recent call last)
-<span class="ansigreen">&lt;ipython-input-4-62b8123de7f0&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
-<span class="ansigreen">      1</span> <span class="ansigreen">from</span> pgmpy<span class="ansiyellow">.</span>models <span class="ansigreen">import</span> BayesianModel<span class="ansiyellow"></span>
-<span class="ansigreen">      2</span> <span class="ansigreen">import</span> pandas <span class="ansigreen">as</span> pd<span class="ansiyellow"></span>
-<span class="ansigreen">----&gt; 3</span><span class="ansiyellow"> </span>data <span class="ansiyellow">=</span> pd<span class="ansiyellow">.</span>DataFrame<span class="ansiyellow">(</span>raw_data<span class="ansiyellow">,</span> columns<span class="ansiyellow">=</span><span class="ansiyellow">[</span><span class="ansiblue">&apos;A&apos;</span><span class="ansiyellow">,</span> <span class="ansiblue">&apos;C&apos;</span><span class="ansiyellow">,</span> <span class="ansiblue">&apos;D&apos;</span><span class="ansiyellow">,</span> <span class="ansiblue">&apos;L&apos;</span><span class="ansiyellow">,</span> <span class="ansiblue">&apos;F&apos;</span><span class="ansiyellow">,</span> <span class="ansiblue">&apos;P&apos;</span><span class="ansiyellow">]</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">      4</span> model <span class="ansiyellow">=</span> BayesianModel<span class="ansiyellow">(</span><span class="ansiyellow">)</span> <span class="ansired">#Add the edges</span><span class="ansiyellow"></span>
-<span class="ansigreen">      5</span> model<span class="ansiyellow">.</span>fit<span class="ansiyellow">(</span>data<span class="ansiyellow">)</span><span class="ansiyellow"></span>
-
-<span class="ansired">NameError</span>: name &apos;raw_data&apos; is not defined</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -1995,7 +1970,7 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now let&#39;s try to do some reasoning on our model to verify if our intuitution is correct or not.</p>
+<p>Now let&#39;s try to do some reasoning on our model to verify if our intuitution for interaction between variables was correct or not.</p>
 </div>
 </div>
 </div><div class="fragment">
@@ -2003,7 +1978,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[10]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2032,7 +2007,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[11]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2049,7 +2024,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[12]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2071,27 +2046,22 @@ In&nbsp;[]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>That was simple. But still the tough part is to get to the model from the data.</p>
-<h3 id="how-to-construct-model-fromt-the-data-">How to construct model fromt the data?</h3>
+<h3 id="how-to-construct-model-from-the-data-">How to construct model from the data?</h3>
 </div>
 </div>
 </div></section>
     </section><section>
     <section>
     
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+<div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
-In&nbsp;[]:
 </div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre> 
-</pre></div>
-
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The house price estimation example had very intuitive variables and thus we were able to construct the model very easily. But this is not always the case.</p>
+<p>So for constructing the model we use the independence properties implied by the model and by the Joint Probability distribution.</p>
 </div>
 </div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
