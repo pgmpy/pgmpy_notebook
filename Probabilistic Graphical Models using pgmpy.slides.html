@@ -1718,7 +1718,25 @@ div.output_prompt {
 <body>
 <div class="reveal">
 <div class="slides">
-<section>
+<div style=display:none>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[7]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">Math</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div></section>
+    </section><section>
     <section>
     
 <div class="cell border-box-sizing text_cell rendered">
@@ -1726,8 +1744,22 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="probabilistic-graphical-models-pgm-">Probabilistic Graphical Models (PGM)</h2>
-<p>Probabilistic Graphical Model is a way for compactly representing Joint Probability distribution over random variables using the independence conditions of the variables. </p>
+<h3 id="what-is-a-general-classification-problem-in-machine-learning-">What is a general classification problem in Machine learning?</h3>
+<p>To find the probability of a class given the data i.e P(C | D).</p>
+<p>So if we have the joint Probability distribution over all the variables we can easily marginalize and reduce it to find the values for a new data point.</p>
+</div>
+</div>
+</div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="probabilistic-graphical-models-pgm-">Probabilistic Graphical Models (PGM)</h3>
+<p>Probabilistic Graphical Model is a way of compactly representing Joint Probability distribution over random variables using the independence conditions of the variables. </p>
 </div>
 </div>
 </div></section>
@@ -1740,7 +1772,7 @@ div.output_prompt {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="how-s-pgm-different-than-other-algorithms-">How&#39;s PGM different than other algorithms?</h3>
-<p>The distinctive thing about PGM is that it provides a very intuitive and natural approach for modelling complex things along with maintaining control over the computational costs.</p>
+<p>The distinctive thing about PGM is that it provides a very intuitive and natural approach for modelling complex problems along with maintaining control over the computational costs.</p>
 </div>
 </div>
 </div></section>
@@ -1753,7 +1785,7 @@ div.output_prompt {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="example">Example</h3>
-<p>Let&#39;s see an example for predicting the price of a house. And we will only consider that the house&#39;s price depends only on Area, Location, Furnishing, crime rate in that area, distance from the airport. And for simplicity we will just have discrete values for each of these variables.</p>
+<p>Let&#39;s see an example for predicting the price of a house. And for simplicity let&#39;s consider that the price of the house depends only on Area, Location, Furnishing, crime rate and distance from the airport. And also we will consider that all these are just discrete variables.</p>
 </div>
 </div>
 </div></section>
@@ -1773,7 +1805,7 @@ div.output_prompt {
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[1]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1797,42 +1829,31 @@ In&nbsp;[]:
 <p>Now let&#39;s create a model for the interaction of our variables using intuition:</p>
 </div>
 </div>
-</div><div class="fragment">
+</div></section>
+    </section><section>
+    <section>
     
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+<div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
-In&nbsp;[]:
 </div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;housing_price_small.png&#39;</span><span class="p">)</span>
-</pre></div>
-
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="housing_price_small.png"></p>
 </div>
 </div>
-</div>
-
-</div>
-    </div><div class="fragment">
+</div></section>
+    </section><section>
+    <section>
     
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+<div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
-In&nbsp;[]:
 </div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;housing_price.png&#39;</span><span class="p">)</span>
-</pre></div>
-
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="housing_price.png"></p>
 </div>
 </div>
-</div>
-
-</div>
-    </div></section>
+</div></section>
     </section><section>
     <section>
     
@@ -1849,7 +1870,7 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[4]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1864,8 +1885,33 @@ In&nbsp;[]:
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_pyerr">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">NameError</span>                                 Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-4-62b8123de7f0&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">      1</span> <span class="ansigreen">from</span> pgmpy<span class="ansiyellow">.</span>models <span class="ansigreen">import</span> BayesianModel<span class="ansiyellow"></span>
+<span class="ansigreen">      2</span> <span class="ansigreen">import</span> pandas <span class="ansigreen">as</span> pd<span class="ansiyellow"></span>
+<span class="ansigreen">----&gt; 3</span><span class="ansiyellow"> </span>data <span class="ansiyellow">=</span> pd<span class="ansiyellow">.</span>DataFrame<span class="ansiyellow">(</span>raw_data<span class="ansiyellow">,</span> columns<span class="ansiyellow">=</span><span class="ansiyellow">[</span><span class="ansiblue">&apos;A&apos;</span><span class="ansiyellow">,</span> <span class="ansiblue">&apos;C&apos;</span><span class="ansiyellow">,</span> <span class="ansiblue">&apos;D&apos;</span><span class="ansiyellow">,</span> <span class="ansiblue">&apos;L&apos;</span><span class="ansiyellow">,</span> <span class="ansiblue">&apos;F&apos;</span><span class="ansiyellow">,</span> <span class="ansiblue">&apos;P&apos;</span><span class="ansiyellow">]</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">      4</span> model <span class="ansiyellow">=</span> BayesianModel<span class="ansiyellow">(</span><span class="ansiyellow">)</span> <span class="ansired">#Add the edges</span><span class="ansiyellow"></span>
+<span class="ansigreen">      5</span> model<span class="ansiyellow">.</span>fit<span class="ansiyellow">(</span>data<span class="ansiyellow">)</span><span class="ansiyellow"></span>
+
+<span class="ansired">NameError</span>: name &apos;raw_data&apos; is not defined</pre>
 </div>
-    </div><div class="fragment">
+</div>
+
+</div>
+</div>
+
+</div>
+    </div></section>
+    </section><section>
+    <section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1876,26 +1922,21 @@ In&nbsp;[]:
 <p>Adds a Conditional Probability Distribution to each of the node in our model</p>
 </div>
 </div>
-</div>
-    </div></section>
+</div></section>
     </section><section>
     <section>
     
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+<div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
-In&nbsp;[]:
 </div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;housing_price_CPD.png&#39;</span><span class="p">)</span>
-</pre></div>
-
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src='housing_price_CPD.png'></p>
 </div>
 </div>
-</div>
-
-</div><div class="fragment">
+</div></section>
+    </section><section>
+    <section>
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1912,8 +1953,7 @@ In&nbsp;[]:
 </div>
 </div>
 
-</div>
-    </div></section>
+</div></section>
     </section><section>
     <section>
     
@@ -2031,6 +2071,7 @@ In&nbsp;[]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>That was simple. But still the tough part is to get to the model from the data.</p>
+<h3 id="how-to-construct-model-fromt-the-data-">How to construct model fromt the data?</h3>
 </div>
 </div>
 </div></section>
@@ -2044,7 +2085,7 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">Go</span> <span class="n">over</span> <span class="n">thing</span> <span class="n">like</span> <span class="n">independencies</span> <span class="ow">and</span> <span class="n">stuff</span>
+<div class="highlight"><pre> 
 </pre></div>
 
 </div>
@@ -2066,8 +2107,7 @@ In&nbsp;[]:
 </div>
 </div>
 
-</div></section>
-    </section>
+</div>
 </div>
 </div>
 
