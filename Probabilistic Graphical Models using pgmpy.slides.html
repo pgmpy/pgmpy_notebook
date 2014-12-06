@@ -1759,7 +1759,7 @@ In&nbsp;[7]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="probabilistic-graphical-models-pgm-">Probabilistic Graphical Models (PGM)</h3>
-<p>Probabilistic Graphical Model is a way of compactly representing Joint Probability distribution over random variables using the independence conditions of the variables. </p>
+<p>Probabilistic Graphical Model is a way of compactly representing Joint Probability distribution over random variables by exploiting the independence conditions of the variables. </p>
 </div>
 </div>
 </div></section>
@@ -1771,7 +1771,7 @@ In&nbsp;[7]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="how-is-pgm-different-than-other-algorithms-">How is PGM different than other algorithms?</h3>
+<h3 id="how-is-pgm-different-than-other-techniques-">How is PGM different than other techniques?</h3>
 <p>The distinctive thing about PGM is that it provides a very intuitive and natural approach for modelling complex problems along with maintaining control over the computational costs.</p>
 </div>
 </div>
@@ -1805,7 +1805,7 @@ In&nbsp;[7]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[2]:
+In&nbsp;[3]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1825,13 +1825,13 @@ In&nbsp;[2]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-[[1 0 0 0 1 1]
- [1 0 1 0 0 1]
- [1 1 1 0 1 1]
+[[0 0 0 1 1 0]
+ [0 0 0 0 1 0]
+ [1 1 1 0 0 0]
  ..., 
- [0 0 0 1 0 1]
- [1 0 1 1 1 0]
- [0 1 0 1 0 1]]
+ [1 1 0 1 1 0]
+ [0 1 0 1 0 1]
+ [1 1 1 0 0 1]]
 
 </pre>
 </div>
@@ -1894,7 +1894,7 @@ In&nbsp;[2]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[3]:
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1907,76 +1907,6 @@ In&nbsp;[3]:
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_pyerr">
-<pre>
-<span class="ansired">---------------------------------------------------------------------------</span>
-<span class="ansired">IndexError</span>                                Traceback (most recent call last)
-<span class="ansigreen">&lt;ipython-input-3-12f75b1fee50&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
-<span class="ansigreen">      4</span> data_train <span class="ansiyellow">=</span> data<span class="ansiyellow">[</span><span class="ansiyellow">:</span> int<span class="ansiyellow">(</span>data<span class="ansiyellow">.</span>shape<span class="ansiyellow">[</span><span class="ansicyan">0</span><span class="ansiyellow">]</span> <span class="ansiyellow">*</span> <span class="ansicyan">0.75</span><span class="ansiyellow">)</span><span class="ansiyellow">]</span><span class="ansiyellow"></span>
-<span class="ansigreen">      5</span> model <span class="ansiyellow">=</span> BayesianModel<span class="ansiyellow">(</span><span class="ansiyellow">[</span><span class="ansiyellow">(</span><span class="ansiblue">&apos;F&apos;</span><span class="ansiyellow">,</span> <span class="ansiblue">&apos;P&apos;</span><span class="ansiyellow">)</span><span class="ansiyellow">,</span> <span class="ansiyellow">(</span><span class="ansiblue">&apos;A&apos;</span><span class="ansiyellow">,</span> <span class="ansiblue">&apos;P&apos;</span><span class="ansiyellow">)</span><span class="ansiyellow">,</span> <span class="ansiyellow">(</span><span class="ansiblue">&apos;L&apos;</span><span class="ansiyellow">,</span> <span class="ansiblue">&apos;P&apos;</span><span class="ansiyellow">)</span><span class="ansiyellow">,</span> <span class="ansiyellow">(</span><span class="ansiblue">&apos;C&apos;</span><span class="ansiyellow">,</span> <span class="ansiblue">&apos;L&apos;</span><span class="ansiyellow">)</span><span class="ansiyellow">,</span> <span class="ansiyellow">(</span><span class="ansiblue">&apos;D&apos;</span><span class="ansiyellow">,</span> <span class="ansiblue">&apos;L&apos;</span><span class="ansiyellow">)</span><span class="ansiyellow">]</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">----&gt; 6</span><span class="ansiyellow"> </span>model<span class="ansiyellow">.</span>fit<span class="ansiyellow">(</span>data_train<span class="ansiyellow">)</span><span class="ansiyellow"></span>
-
-<span class="ansigreen">/home/ankur/pgmpy/pgmpy/models/BayesianModel.py</span> in <span class="ansicyan">fit</span><span class="ansiblue">(self, data)</span>
-<span class="ansigreen">    428</span>                                         (state_counts / state_counts.sum()).values[:, np.newaxis]))
-<span class="ansigreen">    429</span>             <span class="ansigreen">else</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">--&gt; 430</span><span class="ansiyellow">                 </span>state_counts <span class="ansiyellow">=</span> data<span class="ansiyellow">.</span>groupby<span class="ansiyellow">(</span><span class="ansiyellow">[</span>node<span class="ansiyellow">]</span> <span class="ansiyellow">+</span> <span class="ansiyellow">(</span>list<span class="ansiyellow">(</span>nx<span class="ansiyellow">.</span>ancestors<span class="ansiyellow">(</span>self<span class="ansiyellow">,</span> node<span class="ansiyellow">)</span><span class="ansiyellow">)</span><span class="ansiyellow">)</span><span class="ansiyellow">)</span><span class="ansiyellow">.</span>count<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow">.</span>iloc<span class="ansiyellow">[</span><span class="ansiyellow">:</span><span class="ansiyellow">,</span> <span class="ansicyan">0</span><span class="ansiyellow">]</span><span class="ansiyellow"></span>
-<span class="ansigreen">    431</span>                 values <span class="ansiyellow">=</span> <span class="ansiyellow">(</span>state_counts <span class="ansiyellow">/</span> state_counts<span class="ansiyellow">.</span>sum<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow">)</span><span class="ansiyellow">.</span>values<span class="ansiyellow"></span>
-<span class="ansigreen">    432</span>                 parent_card <span class="ansiyellow">=</span> np<span class="ansiyellow">.</span>array<span class="ansiyellow">(</span><span class="ansiyellow">[</span><span class="ansiyellow">]</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-
-<span class="ansigreen">/usr/local/lib/python3.4/dist-packages/pandas/core/indexing.py</span> in <span class="ansicyan">__getitem__</span><span class="ansiblue">(self, key)</span>
-<span class="ansigreen">   1198</span>     <span class="ansigreen">def</span> __getitem__<span class="ansiyellow">(</span>self<span class="ansiyellow">,</span> key<span class="ansiyellow">)</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">   1199</span>         <span class="ansigreen">if</span> type<span class="ansiyellow">(</span>key<span class="ansiyellow">)</span> <span class="ansigreen">is</span> tuple<span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">-&gt; 1200</span><span class="ansiyellow">             </span><span class="ansigreen">return</span> self<span class="ansiyellow">.</span>_getitem_tuple<span class="ansiyellow">(</span>key<span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">   1201</span>         <span class="ansigreen">else</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">   1202</span>             <span class="ansigreen">return</span> self<span class="ansiyellow">.</span>_getitem_axis<span class="ansiyellow">(</span>key<span class="ansiyellow">,</span> axis<span class="ansiyellow">=</span><span class="ansicyan">0</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
-
-<span class="ansigreen">/usr/local/lib/python3.4/dist-packages/pandas/core/indexing.py</span> in <span class="ansicyan">_getitem_tuple</span><span class="ansiblue">(self, tup)</span>
-<span class="ansigreen">   1416</span>                 <span class="ansigreen">continue</span><span class="ansiyellow"></span>
-<span class="ansigreen">   1417</span> <span class="ansiyellow"></span>
-<span class="ansigreen">-&gt; 1418</span><span class="ansiyellow">             </span>retval <span class="ansiyellow">=</span> getattr<span class="ansiyellow">(</span>retval<span class="ansiyellow">,</span> self<span class="ansiyellow">.</span>name<span class="ansiyellow">)</span><span class="ansiyellow">.</span>_getitem_axis<span class="ansiyellow">(</span>key<span class="ansiyellow">,</span> axis<span class="ansiyellow">=</span>axis<span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">   1419</span> <span class="ansiyellow"></span>
-<span class="ansigreen">   1420</span>             <span class="ansired"># if the dim was reduced, then pass a lower-dim the next time</span><span class="ansiyellow"></span><span class="ansiyellow"></span>
-
-<span class="ansigreen">/usr/local/lib/python3.4/dist-packages/pandas/core/indexing.py</span> in <span class="ansicyan">_getitem_axis</span><span class="ansiblue">(self, key, axis)</span>
-<span class="ansigreen">   1470</span>                 self<span class="ansiyellow">.</span>_is_valid_integer<span class="ansiyellow">(</span>key<span class="ansiyellow">,</span> axis<span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">   1471</span> <span class="ansiyellow"></span>
-<span class="ansigreen">-&gt; 1472</span><span class="ansiyellow">             </span><span class="ansigreen">return</span> self<span class="ansiyellow">.</span>_get_loc<span class="ansiyellow">(</span>key<span class="ansiyellow">,</span> axis<span class="ansiyellow">=</span>axis<span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">   1473</span> <span class="ansiyellow"></span>
-<span class="ansigreen">   1474</span>     <span class="ansigreen">def</span> _convert_to_indexer<span class="ansiyellow">(</span>self<span class="ansiyellow">,</span> obj<span class="ansiyellow">,</span> axis<span class="ansiyellow">=</span><span class="ansicyan">0</span><span class="ansiyellow">,</span> is_setter<span class="ansiyellow">=</span><span class="ansigreen">False</span><span class="ansiyellow">)</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
-
-<span class="ansigreen">/usr/local/lib/python3.4/dist-packages/pandas/core/indexing.py</span> in <span class="ansicyan">_get_loc</span><span class="ansiblue">(self, key, axis)</span>
-<span class="ansigreen">     89</span> <span class="ansiyellow"></span>
-<span class="ansigreen">     90</span>     <span class="ansigreen">def</span> _get_loc<span class="ansiyellow">(</span>self<span class="ansiyellow">,</span> key<span class="ansiyellow">,</span> axis<span class="ansiyellow">=</span><span class="ansicyan">0</span><span class="ansiyellow">)</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">---&gt; 91</span><span class="ansiyellow">         </span><span class="ansigreen">return</span> self<span class="ansiyellow">.</span>obj<span class="ansiyellow">.</span>_ixs<span class="ansiyellow">(</span>key<span class="ansiyellow">,</span> axis<span class="ansiyellow">=</span>axis<span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">     92</span> <span class="ansiyellow"></span>
-<span class="ansigreen">     93</span>     <span class="ansigreen">def</span> _slice<span class="ansiyellow">(</span>self<span class="ansiyellow">,</span> obj<span class="ansiyellow">,</span> axis<span class="ansiyellow">=</span><span class="ansicyan">0</span><span class="ansiyellow">,</span> typ<span class="ansiyellow">=</span><span class="ansigreen">None</span><span class="ansiyellow">)</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
-
-<span class="ansigreen">/usr/local/lib/python3.4/dist-packages/pandas/core/frame.py</span> in <span class="ansicyan">_ixs</span><span class="ansiblue">(self, i, axis)</span>
-<span class="ansigreen">   1726</span>             &quot;&quot;&quot;
-<span class="ansigreen">   1727</span> <span class="ansiyellow"></span>
-<span class="ansigreen">-&gt; 1728</span><span class="ansiyellow">             </span>label <span class="ansiyellow">=</span> self<span class="ansiyellow">.</span>columns<span class="ansiyellow">[</span>i<span class="ansiyellow">]</span><span class="ansiyellow"></span>
-<span class="ansigreen">   1729</span>             <span class="ansigreen">if</span> isinstance<span class="ansiyellow">(</span>i<span class="ansiyellow">,</span> slice<span class="ansiyellow">)</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">   1730</span>                 <span class="ansired"># need to return view</span><span class="ansiyellow"></span><span class="ansiyellow"></span>
-
-<span class="ansigreen">/usr/local/lib/python3.4/dist-packages/pandas/core/index.py</span> in <span class="ansicyan">__getitem__</span><span class="ansiblue">(self, key)</span>
-<span class="ansigreen">    911</span> <span class="ansiyellow"></span>
-<span class="ansigreen">    912</span>         <span class="ansigreen">if</span> np<span class="ansiyellow">.</span>isscalar<span class="ansiyellow">(</span>key<span class="ansiyellow">)</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
-<span class="ansigreen">--&gt; 913</span><span class="ansiyellow">             </span><span class="ansigreen">return</span> getitem<span class="ansiyellow">(</span>key<span class="ansiyellow">)</span><span class="ansiyellow"></span>
-<span class="ansigreen">    914</span> <span class="ansiyellow"></span>
-<span class="ansigreen">    915</span>         <span class="ansigreen">if</span> isinstance<span class="ansiyellow">(</span>key<span class="ansiyellow">,</span> slice<span class="ansiyellow">)</span><span class="ansiyellow">:</span><span class="ansiyellow"></span>
-
-<span class="ansired">IndexError</span>: index out of bounds</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -2003,7 +1933,7 @@ In&nbsp;[3]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src='housing_price_CPD.png'></p>
+<p><img src='housing_price_with_CPD.png'></p>
 </div>
 </div>
 </div></section>
@@ -2018,14 +1948,66 @@ In&nbsp;[]:
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="n">model</span><span class="o">.</span><span class="n">get_cpds</span><span class="p">()</span>
-<span class="c"># Show some more code</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div></section>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<pre><code>[&lt;pgmpy.factors.CPD.TabularCPD at 0x7fee0f708c50&gt;,
+ &lt;pgmpy.factors.CPD.TabularCPD at 0x7fee1993e8d0&gt;,
+ &lt;pgmpy.factors.CPD.TabularCPD at 0x7fee0f708cf8&gt;,
+ &lt;pgmpy.factors.CPD.TabularCPD at 0x7fee0f4a0470&gt;,
+ &lt;pgmpy.factors.CPD.TabularCPD at 0x7fee0f4a0550&gt;,
+ &lt;pgmpy.factors.CPD.TabularCPD at 0x7fee0f4a0cf8&gt;]
+</code></pre>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[9]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">model</span><span class="o">.</span><span class="n">get_cpds</span><span class="p">(</span><span class="s">&#39;P&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[9]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+&lt;pgmpy.factors.CPD.TabularCPD at 0x7fee1993e8d0&gt;
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div></section>
     </section><section>
     <section>
     
@@ -2060,6 +2042,17 @@ In&nbsp;[]:
 </div>
 
 </div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>True</p>
+</div>
+</div>
+</div>
     </div></section>
     </section><section>
     <section>
@@ -2085,12 +2078,28 @@ In&nbsp;[10]:
 <span class="n">model</span> <span class="o">=</span> <span class="n">VariableElimination</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <span class="c"># Returns a probability distribution over variables A and B.</span>
 <span class="n">model</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">variables</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;A&#39;</span><span class="p">,</span> <span class="s">&#39;B&#39;</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">variables</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;P&#39;</span><span class="p">],</span> <span class="n">conditions</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;L&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">},</span> <span class="s">&#39;F&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">},</span> <span class="s">&#39;A&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">}}))</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<pre><code>P          phi(A)  
+------------------
+P_0        0.96
+P_1        0.04
+</code></pre>
+</div>
+</div>
 </div>
     </div></section>
     </section><section>
@@ -2113,7 +2122,9 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mf">0.75</span> <span class="o">*</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<div class="highlight"><pre><span class="n">test_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mf">0.75</span> <span class="o">*</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">test_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s">&#39;P&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2209,9 +2220,7 @@ In&nbsp;[]:
 <p>Doing inference from the model is really simple. But the tough part is to create the model from the data.</p>
 </div>
 </div>
-</div></section>
-    </section><section>
-    <section>
+</div><div class="fragment">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -2222,9 +2231,8 @@ In&nbsp;[]:
 <p>So for constructing the model we use the independence properties implied by the model and by the Joint Probability distribution.</p>
 </div>
 </div>
-</div></section>
-    </section><section>
-    <section>
+</div>
+    </div><div class="fragment">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -2234,9 +2242,8 @@ In&nbsp;[]:
 <p>One of the simplest way to construct a model is to find out some independence conditions in the data and according to that we can use that to arrange our variables in the graph structure in such a way to satisfy those independency conditions.</p>
 </div>
 </div>
-</div></section>
-    </section><section>
-    <section>
+</div>
+    </div><div class="fragment">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -2246,9 +2253,8 @@ In&nbsp;[]:
 <p>Also local independencies make it simpler to construct models. Give example of local independencies in the case of Bayesian Models.</p>
 </div>
 </div>
-</div></section>
-    </section><section>
-    <section>
+</div>
+    </div><div class="fragment">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -2259,21 +2265,7 @@ In&nbsp;[]:
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
+    </div>
 </div>
 </div>
 
