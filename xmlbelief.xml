@@ -1,0 +1,94 @@
+<ANALYSISNOTEBOOK NAME="Notebook.Cancer Example From Neapolitan" ROOT="Cancer">
+       <BNMODEL NAME="Cancer">
+          <STATICPROPERTIES>
+             <FORMAT VALUE="MSR DTAS XML"/>
+             <VERSION VALUE="0.2"/>
+             <CREATOR VALUE="Microsoft Research DTAS"/>
+          </STATICPROPERTIES>
+          <VARIABLES>
+             <VAR NAME="a" TYPE="discrete" XPOS="13495" YPOS="10465">
+                <DESCRIPTION>(a) Metastatic Cancer</DESCRIPTION>
+                <STATENAME>Present</STATENAME>
+                <STATENAME>Absent</STATENAME>
+             </VAR>
+             <VAR NAME="b" TYPE="discrete" XPOS="11290" YPOS="11965">
+                <DESCRIPTION>(b) Serum Calcium Increase</DESCRIPTION>
+                <STATENAME>Present</STATENAME>
+                <STATENAME>Absent</STATENAME>
+             </VAR>
+             <VAR NAME="c" TYPE="discrete" XPOS="15250" YPOS="11935">
+                <DESCRIPTION>(c) Brain Tumor</DESCRIPTION>
+                <STATENAME>Present</STATENAME>
+                <STATENAME>Absent</STATENAME>
+             </VAR>
+             <VAR NAME="d" TYPE="discrete" XPOS="13960" YPOS="12985">
+                <DESCRIPTION>(d) Coma</DESCRIPTION>
+                <STATENAME>Present</STATENAME>
+                <STATENAME>Absent</STATENAME>
+             </VAR>
+             <VAR NAME="e" TYPE="discrete" XPOS="17305" YPOS="13240">
+                <DESCRIPTION>(e) Papilledema</DESCRIPTION>
+                <STATENAME>Present</STATENAME>
+                <STATENAME>Absent</STATENAME>
+             </VAR>
+          </VARIABLES>
+          <STRUCTURE>
+             <ARC PARENT="a" CHILD="b"/>
+             <ARC PARENT="a" CHILD="c"/>
+             <ARC PARENT="b" CHILD="d"/>
+             <ARC PARENT="c" CHILD="d"/>
+             <ARC PARENT="c" CHILD="e"/>
+          </STRUCTURE>
+          <DISTRIBUTIONS>
+             <DIST TYPE="discrete">
+                <PRIVATE NAME="a"/>
+                <DPIS>
+                   <DPI> 0.2 0.8</DPI>
+                </DPIS>
+             </DIST>
+             <DIST TYPE="discrete">
+                <CONDSET>
+                   <CONDELEM NAME="a"/>
+                </CONDSET>
+                <PRIVATE NAME="b"/>
+                <DPIS>
+                   <DPI INDEXES=" 0 "> 0.8 0.2</DPI>
+                   <DPI INDEXES=" 1 "> 0.2 0.8</DPI>
+                </DPIS>
+             </DIST>
+             <DIST TYPE="discrete">
+                <CONDSET>
+                   <CONDELEM NAME="a"/>
+                </CONDSET>
+                <PRIVATE NAME="c"/>
+                <DPIS>
+                   <DPI INDEXES=" 0 "> 0.2 0.8</DPI>
+                   <DPI INDEXES=" 1 "> 0.05 0.95</DPI>
+                </DPIS>
+             </DIST>
+             <DIST TYPE="discrete">
+                <CONDSET>
+                   <CONDELEM NAME="b"/>
+                   <CONDELEM NAME="c"/>
+                </CONDSET>
+                <PRIVATE NAME="d"/>
+                <DPIS>
+                   <DPI INDEXES=" 0 0 "> 0.8 0.2</DPI>
+                   <DPI INDEXES=" 0 1 "> 0.9 0.1</DPI>
+                   <DPI INDEXES=" 1 0 "> 0.7 0.3</DPI>
+                   <DPI INDEXES=" 1 1 "> 0.05 0.95</DPI>
+                </DPIS>
+             </DIST>
+             <DIST TYPE="discrete">
+                <CONDSET>
+                   <CONDELEM NAME="c"/>
+                </CONDSET>
+                <PRIVATE NAME="e"/>
+                <DPIS>
+                   <DPI INDEXES=" 0 "> 0.8 0.2</DPI>
+                   <DPI INDEXES=" 1 "> 0.6 0.4</DPI>
+                </DPIS>
+             </DIST>
+          </DISTRIBUTIONS>
+       </BNMODEL>
+</ANALYSISNOTEBOOK>
